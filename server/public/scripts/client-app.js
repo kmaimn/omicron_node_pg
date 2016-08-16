@@ -13,10 +13,13 @@ function getBooks() {
     url: '/books',
     success: function (books) {
       console.log('GET /books returns:', books);
+      //once it gets books, appends to DOM
       books.forEach(function (book) {
         var $el = $('<li></li>');
         $el.append('<strong>' + book.title + '</strong>');
+        $el.append(' ' + book.edition + ' ed.');
         $el.append(' <em>' + book.author + '</em');
+        $el.append(' ' + book.publisher + '');
         $el.append(' <time>' + book.published + '</time>');
         $('#book-list').append($el);
       });
